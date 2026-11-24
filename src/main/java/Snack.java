@@ -34,4 +34,19 @@ public class Snack {
         this.snackQuantity = snackQuantity;
     }
 
+    public boolean isAvailable() {
+        return (snackQuantity > 0);
+    }
+
+    public void decrementQuantity() {
+        if(this.isAvailable()) {
+            snackQuantity -= 1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String formatted_snackprice = String.format("%.2f", snackPrice);
+        return ("Name: "+snackName+", Price: $"+formatted_snackprice+", Stock Remaining: "+snackQuantity);
+    }
 }
