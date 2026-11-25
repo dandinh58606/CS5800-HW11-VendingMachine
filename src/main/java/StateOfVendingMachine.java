@@ -1,2 +1,5 @@
-public class StateOfVendingMachine {
+public interface StateOfVendingMachine {
+
+
+
 }
