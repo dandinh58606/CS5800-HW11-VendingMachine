@@ -3,8 +3,8 @@ public class IdleState implements StateOfVendingMachine{
     @Override
     public void selectSnack(VendingMachine vendingMachine, String snackName) {
         System.out.println("Selected snack: " + snackName);
-        //vendingMachine.setSelectedSnack(snackName);
-        //vendingMachine.setState(new WaitingForMoneyState());
+        vendingMachine.setSnack(snackName);
+        vendingMachine.setState(new WaitingForMoneyState());
     }
 
     @Override
