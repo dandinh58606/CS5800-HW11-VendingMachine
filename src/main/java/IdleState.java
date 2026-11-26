@@ -4,7 +4,7 @@ public class IdleState implements StateOfVendingMachine{
     public void selectSnack(VendingMachine vendingMachine, String snackName) {
         System.out.println("Selected snack: " + snackName);
         vendingMachine.setSnack(snackName);
-        vendingMachine.setState(new WaitingForMoneyState());
+        vendingMachine.setState(new InsertMoneyState());
     }
 
     @Override

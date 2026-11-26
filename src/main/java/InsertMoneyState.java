@@ -14,7 +14,7 @@ public class InsertMoneyState implements StateOfVendingMachine{
         vendingMachine.addMoney(amount);
         System.out.println("Inserted $" + amount + ". Total inserted: $" + vendingMachine.getMoney());
         System.out.println("Please select a snack to start first.");
-        vendingMachine.setState(new DispensingSnackState());
+        vendingMachine.setState(new DispenseSnackState());
     }
 
     @Override

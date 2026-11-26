@@ -14,9 +14,18 @@ public class DispenseSnackState implements  StateOfVendingMachine{
     public void dispenseSnack(VendingMachine vendingMachine) {
         String selectedSnack = vendingMachine.getSnack();
         double insertedMoney = vendingMachine.getMoney();
+        Snack snackDispensed = null;
 
         if(vendingMachine.getDispenserChain() != null) {
-            vendingMachine.getDispenserChain().dispenseSnack(selectedSnack, insertedMoney);
+            snackDispensed = vendingMachine.getDispenserChain().dispenseSnack(selectedSnack, insertedMoney);
+        }
+
+        if(snackDispensed != null) {
+            double change = insertedMoney - snackDispensed.getSnackPrice();
+            System.out.println("Dispensing " + snackDispensed.getSnackName() + ". Change returned: $" + String.format("%.2f", change));
+        }
+        else {
+            System.out.println("Refunding $" + String.format("%.2f", insertedMoney));
         }
 
         vendingMachine.resetTransaction();
