@@ -5,9 +5,11 @@ public abstract class SnackDispenserHandler {
     public SnackDispenserHandler(SnackDispenserHandler next) {
         this.next = next;
     }
-    public void dispenseSnack(String snackName, double paymentAmount) {
+    public Snack dispenseSnack(String snackName, double paymentAmount) {
         if(next != null) {
-            next.dispenseSnack(snackName, paymentAmount);
+            return next.dispenseSnack(snackName, paymentAmount);
         }
+        System.out.println("Snack not found: "+snackName);
+        return null;
     }
 }
